@@ -55,7 +55,7 @@ with filters_col:
     age_max = int(data['age'].max())
     age_range = st.slider("Select Age Range:", min_value=age_min, max_value=age_max, value=(age_min, age_max))
 
-    risk_factor = st.selectbox("Select Risk Factor:", ["Smoking", "Body Weight", "Blood Pressure"], index=0)
+    risk_factor = st.selectbox("Select Risk Factor:", ["Smoking", "Nutrition", "Blood Pressure"], index=0)
 
 filtered_data = data[
     (data['gender'].isin(gender_options)) &
@@ -154,7 +154,7 @@ with plots_col:
         with r2c2:
             st.plotly_chart(fig_intensity, use_container_width=True)
 
-    elif risk_factor == "Body Weight":
+    elif risk_factor == "Nutrition":
         r2c1, r2c2 = st.columns(2)
         with r2c1:
             st.plotly_chart(fig_bmi, use_container_width=True)
